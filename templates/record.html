@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Reservation Form</title>
+    <link rel="stylesheet" href="{% static 'css/record.css' %}">
+</head>
+<body>
+    <a href="/dashboard" style="position: absolute; top: 10px; left: 10px; text-decoration: none; color: #333;">
+        <button style="padding: 8px; cursor: pointer;">Back</button>
+    </a>
+
+    <form action="#" method="post">
+        <h1>Flight Reservation Form</h1>
+
+        <!-- Section 1 -->
+        <section>
+            
+            <label for="recordId">RECORD ID:</label>
+            <input type="text" id="recordId" name="recordId" required>
+
+            <label for="passengerName">Passenger Name:</label>
+            <input type="text" id="passengerName" name="passengerName" required>
+
+            <label for="sponsorName">Sponsor Name:</label>
+            <input type="text" id="sponsorName" name="sponsorName" required>
+
+            <label for="reservationTakenBy">Reservation Taken By:</label>
+            <input type="text" id="reservationTakenBy" name="reservationTakenBy" required>
+
+            <label for="dateReq">Date Req:</label>
+            <input type="date" id="dateReq" name="dateReq" required>
+
+            <label for="agent">Agent:</label>
+            <input type="text" id="agent" name="agent" required>
+
+            <label for="penalties">Penalties:</label>
+            <input type="text" id="penalties" name="penalties" required>
+
+            <label for="deadline">Deadline:</label>
+            <input type="text" id="deadline" name="deadline" required>
+        </section>
+
+        <!-- Section 2 -->
+        <section>
+            
+            <table id="flightTable">
+                <thead>
+                    <tr>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Carrier</th>
+                        <th>CL</th>
+                        <th>Date</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+            <button type="button" onclick="addRow()">Add Row</button>
+        </section>
+
+        <!-- Section 3 -->
+        <section>
+            
+            <label for="fareBasis">FARE BASIS:</label>
+            <input type="text" id="fareBasis" name="fareBasis" required>
+
+            <label for="bookingClass">BOOKING CLASS:</label>
+            <input type="text" id="bookingClass" name="bookingClass" required>
+
+            <label for="pnrRef">P.N.R REF:</label>
+            <input type="text" id="pnrRef" name="pnrRef" required>
+
+            <label for="baggageAllowance">BAGGAGE ALLOWANCE:</label>
+            <input type="text" id="baggageAllowance" name="baggageAllowance" required>
+
+            <label for="validity">VALIDITY:</label>
+            <input type="text" id="validity" name="validity" required>
+
+            <label for="mealPreference">MEAL PREFERENCE:</label>
+            <input type="text" id="mealPreference" name="mealPreference" required>
+
+            <label for="exchangeRate">EXCHANGE RATE:</label>
+            <input type="text" id="exchangeRate" name="exchangeRate" required>
+
+            <label for="frequentFlierNo">FREQUENT FLIER NO:</label>
+            <input type="text" id="frequentFlierNo" name="frequentFlierNo" required>
+        </section>
+
+        <!-- Section 4 -->
+        <section>
+            <h2>FARE CALCULATION</h2>
+            <table>
+                <tr>
+                    <th>NUC</th>
+                    <td><input type="text" name="nucRow1"></td>
+                    <td><input type="text" name="nucRow2"></td>
+                </tr>
+                <tr>
+                    <th>TAXES</th>
+                    <td><input type="text" name="taxesRow1"></td>
+                    <td><input type="text" name="taxesRow2"></td>
+                </tr>
+                <tr>
+                    <th>TOTAL</th>
+                    <td><input type="text" name="totalRow1"></td>
+                    <td><input type="text" name="totalRow2"></td>
+                </tr>
+                <tr>
+                    <th>LEAD</th>
+                    <td><input type="text" name="leadRow1"></td>
+                    <td><input type="text" name="leadRow2"></td>
+                </tr>
+                <tr>
+                    <th>DISC/SC</th>
+                    <td><input type="text" name="discScRow1"></td>
+                    <td><input type="text" name="discScRow2"></td>
+                </tr>
+                <tr>
+                    <th>G.TOTAL</th>
+                    <td><input type="text" name="gTotalRow1"></td>
+                    <td><input type="text" name="gTotalRow2"></td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Section 5 -->
+        <section>
+            <h2>PAYMENT TO AGENT</h2>
+            <label for="paymentNuc">NUC:</label>
+            <input type="text" id="paymentNuc" name="paymentNuc" required>
+
+            <label for="paymentTaxes">TAXES:</label>
+            <input type="text" id="paymentTaxes" name="paymentTaxes" required>
+
+            <label for="paymentLead">LEAD:</label>
+            <input type="text" id="paymentLead" name="paymentLead" required>
+
+            <label for="paymentDisc">DISC:</label>
+            <input type="text" id="paymentDisc" name="paymentDisc" required>
+
+            <label for="paymentTotal">TOTAL:</label>
+            <input type="text" id="paymentTotal" name="paymentTotal" required>
+        </section>
+
+        <button type="submit">Submit</button>
+
+    </form>
+    <script src="{% static 'js/record.js' %}"></script>    
+
+</body>
+</html>

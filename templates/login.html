@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6aWlA/Q5wiGgFjGgkkjF5A4W3E2Y" crossorigin="anonymous">
+    <title>Travel Agency Login</title>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Travel Agency Login</h2>
+        </div>
+        {% if messages %}
+        <div style="background-color: ghostwhite;color: red;border-radius: 5px; text-align: center;margin-bottom: 5px;padding: 4px;">
+            {% for message in messages %}
+            {{message}}
+            {% endfor%}
+        </div>
+        {% endif %}
+        <form id="login-form" method="post" action="">{% csrf_token %}
+            <div class="form-group">
+                <label for="username">Email:</label>
+                <input type="text" id="username" name="email" value="{% if request.POST %}{{request.POST.email}}{% endif %}"  class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"  class="form-control" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-XrJNcBU9cg3RvnH2xP1eIHxpA8GxSw2UB2h1XcDDaIcPlYfFZSc1kSME56gDDIhT" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6aWlA/Q5wiGgFjGgkkjF5A4W3E2Y" crossorigin="anonymous"></script>
+</body>
+</html>
